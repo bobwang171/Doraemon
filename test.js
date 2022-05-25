@@ -1,8 +1,10 @@
+const string = `
+<style>
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background: #87cefa;
+    user-select:none;
 }
 .mainHead{
     position: relative;
@@ -309,3 +311,19 @@ height: 20px;
     border-radius: 20px 10px 10px 10px;
     background-color: white;
 }
+</style>`
+
+let n = 1;
+demo1.innerHTML = string.substring(0, n)
+demo2.innerText=string.substring(0,n)
+let id = setInterval(() => {
+    n += 1
+       if (n > string.length) {
+           window.clearInterval(id)
+           return;
+       }
+    demo1.innerHTML = string.substring(0, n)
+    demo2.innerText = string.substring(0, n)
+    demo2.scrollTop = demo2.scrollHeight;
+
+},0)
