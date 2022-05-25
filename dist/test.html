@@ -11,6 +11,13 @@
 <body>
     <div id="demo1"></div>
     <div id="demo2"></div>
+    <div id="buttons">
+        <button id="buttonPlay">播放</button>
+        <button id="buttonPause">暂停</button>
+        <button id="buttonFast">快速</button>
+        <button id="buttonNormal">中速</button>
+        <button id="buttonSlow">慢速</button>
+    </div>
     <div id="html">
         <div class="mainHead">
             <div class="face"></div>
@@ -57,7 +64,13 @@
     </div>
     <script src="/test.1ee1d3ab.js"></script>
 </body>
+
 <style>
+    * {
+        box-sizing: border-box;
+        user-select: none;
+    }
+
     #html {
         position: fixed;
         bottom: 0;
@@ -77,6 +90,24 @@
         left: 0;
         top: 0;
         overflow: scroll;
+    }
+
+    #buttons {
+        position: fixed;
+        right: 25px;
+        top: 20px;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    #buttons>button {
+        margin-bottom: 15px;
+        padding: 8px;
+        background-color: #0097e3;
+        color: white;
+        border-radius: 30px;
+        cursor: pointer;
     }
 </style>
 

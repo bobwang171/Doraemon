@@ -1,6 +1,6 @@
 const string = `
 <style>
-*{
+.mainHead *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -315,8 +315,11 @@ height: 20px;
 
 let n = 1;
 demo1.innerHTML = string.substring(0, n)
-demo2.innerText=string.substring(0,n)
-let id = setInterval(() => {
+demo2.innerText = string.substring(0, n)
+
+let time=100
+
+const run=() => {
     n += 1
        if (n > string.length) {
            window.clearInterval(id)
@@ -326,4 +329,32 @@ let id = setInterval(() => {
     demo2.innerText = string.substring(0, n)
     demo2.scrollTop = demo2.scrollHeight;
 
-},0)
+}
+const play = () => {
+    return setInterval(run,time)
+}
+const pause = () => {
+    window.clearInterval(id);
+}
+let id = play();
+buttonPause.onclick = () => {
+    pause();
+}
+buttonPlay.onclick = () => {
+    id = play();
+}
+buttonFast.onclick = () => {
+    window.clearInterval(id)
+    time=0
+    id = play();
+}
+buttonNormal.onclick = () => {
+    pause();
+    time=100
+    id = play();
+}
+buttonSlow.onclick = () => {
+    pause();
+    time=300
+    id = play();
+}
