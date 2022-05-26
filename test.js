@@ -331,7 +331,8 @@ const run=() => {
 
 }
 const play = () => {
-    return setInterval(run,time)
+    clearInterval(id);
+    return setInterval(run, time);
 }
 const pause = () => {
     window.clearInterval(id);
@@ -357,4 +358,7 @@ buttonSlow.onclick = () => {
     pause();
     time=300
     id = play();
+}
+buttonClear.onclick = () => {
+    location.reload();
 }
